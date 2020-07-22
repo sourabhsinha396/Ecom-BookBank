@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+<div class="container">
+  <div class="row my-3">
+      <h1 class="display-4">Cart</h1>
+
+      {% if cart.products.exists %}
+        {% include 'carts/snippets/cart_table.html' with cart=cart %}
+      {% else %}
+        <p class="text-danger">Cart is Empty</p>
+      {% endif %}
+  </div>
+</div>
+
+{% endblock %}

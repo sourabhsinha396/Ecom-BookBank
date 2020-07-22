@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-4">All Books</h1>
+    </div>
+  </div>
+  <div class="row">
+      {% for obj in object_list %}
+        <div class="col-lg-3 col-md-3 col-sm-10 mr-auto">
+          {% include 'components/card.html' with obj=obj %}
+          {% if forloop.counter|divisibleby:3 %}
+          </div></div><br><div class="row">
+          {% else %}
+          </div>
+          {% endif %}
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

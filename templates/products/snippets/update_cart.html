@@ -1,0 +1,12 @@
+
+
+<form method="POST" id="ajax-cart-add" class="form" action="{% url 'cart:func_cart_update' object.id %}">
+{% csrf_token %}
+  <div class="add-cart-span">
+    {% if product in cart.products.all %}
+      In cart<button type="submit" class="btn btn-link" name="button">Remove?</button>
+    {% else %}
+      <button type="submit" class="btn btn-info" name="button">Add to Cartt?</button>
+    {% endif %}
+  </div>
+</form>

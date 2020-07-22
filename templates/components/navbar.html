@@ -1,0 +1,54 @@
+{% url 'home' as home %}
+{% url 'products:func_product_list' as func_product_list %}
+{% url 'products:million_copies' as million_copies %}
+<link href='https://fonts.googleapis.com/css?family=Merienda One' rel='stylesheet'>
+<style>
+.navbar {
+    font-family: 'Merienda One';font-size: 16px;
+
+}
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+  <a class="navbar-brand" href="/">{{brand_name}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item {% if request.path == home %}active{% endif %}">
+        <a class="nav-link" href="{{home}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item {% if request.path == million_copies %}active{% endif %}">
+        <a class="nav-link" href="{{million_copies}}">Best-Sellers</a>
+      </li>
+      <li class="nav-item {% if request.path == func_product_list %}active{% endif %}">
+        <a class="nav-link" href="{{func_product_list}}">All-Books</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'subscription' %}">Manage Email Subscription</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'cart:func_cart_home' %}"><i class="fa fa-shopping-cart" aria-hidden="true"><span class="navbar-cart-count">{{request.session.cart_total_items}}</span></i>
+</a>
+      </li>
+    </ul>
+
+
+    {% include 'components/searchform.html' %}
+
+
+    {% include 'components/usericon.html' %}
+
+
+  </div>
+</div>
+</nav>

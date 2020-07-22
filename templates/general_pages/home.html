@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>MbeforL</title>
+<link rel = "icon" href =
+"{% static 'logo/water.jpg' %}"
+        type = "image/x-icon">
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
+
+{% endblock %}
+
+
+{% block body %}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        {% include 'components/messages.html' %}
+      </div>
+    </div>
+    
+    <div class="jumbotron mb-5">
+      <div class="container">
+        <h1 class="display-4">{{page_name}}!</h1>
+        <p class="lead">Welcome to the worlds of books,can't wait for the smell of your favourite book? Order Now!!!.</p>
+        <p class="lead browny"><i class="fa fa-times" style="color:red" aria-hidden="true"></i>
+          Caution:This is just a demo site for my practising don't expect your book to be delivered.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/list/" role="button">Jump to library</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

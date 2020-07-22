@@ -1,0 +1,39 @@
+<link href='https://fonts.googleapis.com/css?family=Merienda One' rel='stylesheet'>
+<style>
+footer {
+    font-family: 'Merienda One';font-size: 16px;
+}
+
+footer a{
+  color:white;
+}
+</style>
+
+<footer>
+<div class="container-fluid bg-dark">
+  <div class="container">
+    <div class="row text-light">
+      <div class="col-4">
+        <p class="lead">Mission</p>
+        <p>To Watch Kung-fu-Panda's all parts,sitting in an Island,With Aurora and stars above</p>
+      </div>
+
+      <div class="col-4">
+        <p class="lead">Business</p>
+        <p>Privacy Policy</p>
+        <p>Terms and Condition</p>
+      </div>
+
+      <div class="col-4">
+        <p class="lead">Company</p>
+        <a href="{% url 'aboutme' %}"><p>About Me</p></a>
+        <a href="{% url 'contact' %}"><p>Contact Us</p></a>
+      </div>
+    </div>
+
+    <hr class="bg-light">
+    <p class="text-center text-light">&copy; Sourabh 2021</p>
+
+  </div>
+</div>
+</footer>

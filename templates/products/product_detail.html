@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container my-3">
+  <div class="row">
+    <div class="col-9">
+      <h1>Title: {{object.title}}</h1>
+      <p class="lead">Description: {{object.description}}</p>
+      <p class="lead">Price: {{object.price}}</p>
+      {% if object.image %}
+        <image src="{{object.image.url}}" class="image-fluid" width="550px" height="500px" alt="some image">
+      {% endif %}
+    </div>
+
+
+    <div class="col-3">
+      {% include 'products/snippets/update_cart.html' with product=object cart=cart %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    var myform = $("#ajax-cart-add");
+
+    myform.submit(function(event){
+      event.preventDefault();
+      var thisForm = myform;
+      var actionEndpoint = thisForm.attr('action');
+      var httpMethod = thisForm.attr('method');
+      var formData = thisForm.serialize();
+      $.ajax({
+        url:actionEndpoint,
+        method: httpMethod,
+        data: formData,
+
+        success: function(data){
+          console.log(data.added)
+          if(data.added){
+            var  text = `In cart<button type="submit" class="btn btn-link" name="button">Remove?</button>`;
+          }
+          else{
+            var  text = `<button type="submit" class="btn btn-primary" name="button">Add to Cart</button>`;
+          }
+          var submitSpan = thisForm.find(".add-cart-span");
+          submitSpan.html(text);
+          var navbarCount = $(".navbar-cart-count");
+          navbarCount.text(data.cart_item_count);
+        },
+        error: function(data){
+          text = `Could not load Add To Cart :(`
+          var submitSpan = thisForm.find(".add-cart-span");
+          submitSpan.html(text);
+        }
+      })
+    })
+  })
+</script>
+{% endblock %}

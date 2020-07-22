@@ -1,0 +1,14 @@
+{% load static %}
+
+
+<div class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem;">
+    {% if obj.image %}
+      <img class="card-img-top" src="{{obj.image.url}}" height="175px" alt="Card image cap">
+    {% endif %}
+  <div class="card-body">
+    <a href="{{obj.get_absolute_url}}"><h5 class="card-title">Title: {{obj.title}}</h5></a>
+    <p class="card-text">Description: {{obj.description|truncatechars:30}}</p>
+    <p class="card-text">Price: {{obj.price}}</p>
+    <a href="{{obj.get_absolute_url}}" class="btn btn-primary">Buy this.</a>
+  </div>
+</div>

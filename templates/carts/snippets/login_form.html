@@ -1,0 +1,9 @@
+<!-- This is shadowed form-->
+  <form method="POST" action="{% if action_url %}{{action_url}}{% else %}{% url 'login' %}{% endif %}">
+    {% csrf_token %}
+    <input type='hidden' name='next' value='{{next_url}}' />
+    {{form.as_p}}
+    <input type="submit" class="btn btn-block btn-dark" name="" value="Submit">
+  </form>
+
+<!--Shadow Form Ends-->

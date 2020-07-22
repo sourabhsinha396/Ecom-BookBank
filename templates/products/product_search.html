@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container">
+  <h1 class="display-4">Search Results</h1>
+  <div class="row my-3">
+      {% for obj in object_list %}
+        <div class="col">
+          {% include 'components/card.html' with obj=obj %}
+          {% if forloop.counter|divisibleby:3 %}
+          </div></div><div class="row my-3">
+          {% else %}
+          </div>
+          {% endif %}
+      {% endfor %}
+
+  </div>
+</div>
+
+{% endblock %}

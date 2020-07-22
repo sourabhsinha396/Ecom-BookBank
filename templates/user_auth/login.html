@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Login Page</title>
+{% endblock %}
+
+
+{% block body %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        {% include 'components/messages.html' %}
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="col-lg-6">
+          <h1>{{page_name}}</h1>
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-lg-3">
+      </div>
+
+        <!-- This is shadowed form-->
+        <div class="col-lg-6 shadow p-3 bg-white rounded">
+          <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-block btn-dark" name="" value="Submit">
+          </form>
+        </div>
+        <!--Shadow Form Ends-->
+
+        <div class="col-lg-3">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+        </div>
+
+          <div class="col-lg-6 p-3 bg-white">
+            <p class="lead">If You don't  have an account then head to <a href="/signup/">Signup</a></p>
+          </div>
+
+          <div class="col-lg-3">
+          </div>
+        </div>
+
+  </div>
+{% endblock %}

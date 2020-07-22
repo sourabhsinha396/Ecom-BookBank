@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container">
+<h1 class="display-4">Checkout</h1>
+
+{% if not billing_profile %}
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-12 shadow p-3 bg-white rounded">
+      <h3><span class="badge badge-info">Login</span></h3>
+      {% include 'carts/snippets/login_form.html' with form=form next_url=request.build_absolute_uri %}
+    </div>
+    <div class="col-4">
+      <h3><span class="badge badge-info">Continue as Guest</span></h3>
+      {% url 'guest_register' as guest_register_url %}
+      {% include 'carts/snippets/login_form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
+    </div>
+  </div>
+
+{% else %}
+      {% if not object.shipping_address %}
+      <div class='row'>
+          <div class='col-6'>
+            <h3><span class="badge badge-info">Billing Address</span></h3>
+            {% url 'billings:checkout_address_create_view' as address_next %}
+            {% include 'carts/snippets/address_form.html' with form=address_form next_url=request.build_absolute_uri action_url=address_next address_type='shipping' %}
+          </div>
+
+          {% url "billings:checkout_address_reuse_view" as address_next %}
+          {% include 'carts/snippets/previous_address.html' with next_url=request.build_absolute_uri address_qs=address_qs action_url=address_next address_type='shipping' %}
+
+      </div>
+      {% elif not object.billing_address %}
+        <div class='row'>
+            <div class='col-6 mx-auto'>
+                <h3><span class="badge badge-info">Billing Address</span></h3>
+                  <hr/>
+              {% url "billings:checkout_address_create_view" as address_next %}
+              {% include 'carts/snippets/address_form.html' with form=billing_address_form next_url=request.build_absolute_uri action_url=address_next address_type='billing' %}
+            </div>
+            {% url "billings:checkout_address_reuse_view" as address_next %}
+            {% include 'carts/snippets/previous_address.html' with next_url=request.build_absolute_uri address_qs=address_qs action_url=address_next address_type='billing' %}
+
+        </div>
+
+      {% else %}
+        <h3><span class="badge badge-info">Finalize Checkout</span></h3>
+        <p><strong>Cart Total:</strong> {{object.cart.total}} </p>
+        <p><strong>Shipping Total:</strong> {{object.shipping_total}} </p>
+        <p><strong>Order Total:</strong> {{object.total}} </p>
+        <p><strong>Shipping Address:</strong>{{object.shipping_address.get_address|safe}}</p>
+        <p><strong>Billing Address:</strong>{{object.billing_address.get_address|safe}}</p>
+
+        <form method="POST" class="my-3" action="{% url 'cart:checkout_done' object.id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success" name="button">Order</button>
+        </form>
+      {% endif %}
+
+{% endif %}
+<p>Cart Id: {{object.cart.id}}</p>
+
+</div>
+{% endblock %}

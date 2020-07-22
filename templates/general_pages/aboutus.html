@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+<title>Sourabh Resume</title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row text-center">
+    <div class="col MyName mb-3">
+      <h1 class="display-4">Sourabh Sinha</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6 stackoverflow-profile">
+      <p class="lead"><strong>Stackoverflow</strong>: <a href="https://stackoverflow.com/users/11652661/mbeforel" target="__blank"> StackOverflow 500+ Points</a></p>
+    </div>
+
+    <div class="col-6">
+      <p class="lead"><strong>Github</strong>: <a href="https://github.com/sourabhsinha396" target="_blank">Github Profile</a></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <p class="lead"><strong>Hackerearth</strong>: <a href="https://www.hackerearth.com/@sourabh230" target="_blank">Hackerearth Profile</a></p>
+    </div>
+
+    <div class="col-6 mobile">
+      <p class="lead"><strong>Mobile</strong>: <a href="tel:+91-7992421140"><i class="fa fa-phone" aria-hidden="true"> 7992421140</i></a></p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-4 Email">
+      <p class="lead"><strong>Email</strong>:<i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:sourabh.btech.ec16@iiitranchi.ac.in">Send Mail</a> sourabh.btech.ec16@iiitranchi.ac.in</p>
+    </div>
+  </div>
+
+   <div class="table-responsive">
+          <table class="table table-striped my-5">
+          <thead>
+            <tr>
+              <th scope="col">DEGREE/CERTIFICATE</th>
+              <th scope="col">SCHOOL/COLLEGE</th>
+              <th scope="col">BOARD/UNIVERSITY</th>
+              <th scope="col">% OF MARKS/CGPA</th>
+              <th scope="col">PASSING YEAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">B.Tech (ECE)</th>
+              <td>Indian Institute of Information Technology,Ranchi</td>
+              <td>IIIT Ranchi</td>
+              <td>8.31</td>
+              <td>2020</td>
+            </tr>
+            <tr>
+              <th scope="row">12th</th>
+              <td>D.A.V. Koyla Nagar, Dhanbad</td>
+              <td>CBSE</td>
+              <td>94.60</td>
+              <td>2015</td>
+            </tr>
+            <tr>
+              <th scope="row">10th</th>
+              <td>D.A.V. Koyla Nagar, Dhanbad</td>
+              <td>CBSE</td>
+              <td>10</td>
+              <td>2013</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+
+  <div class="row mt-5">
+    <div class="col">
+      <h3>Technical Skills</h3>
+      <ul>
+        <li>Languages: C++,Python</li>
+        <li>Frameworks: Django,Scikit-Learn</li>
+        <li>Database: MySQL</li>
+        <li>Others: Git,AWS,Docker,Django Rest Frameworks</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col">
+      <h3>Internship Experience</h3>
+      <p>Internship, Skada Technology,Pune<p>
+      <ul>
+        <li>Duration: 2 month (May 15, 2019 - July 15, 2019).</li>
+        <li>Gained insight to Web Development,Machine Learning</li>
+        <li>Prepared an Review section to feature best reviews of customers.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <h3>Projects</h3>
+      <ul>
+        <li><strong>BookWorm:</strong> Having functionality of cart by session management,security measures are opted and scalable.<strong>Technology Stack:</strong> Django, Javascript, AWS S3, Django Rest Framework <strong>Demo:</strong> <a href="https://www.screenit.in/" target="_blank">BookWorm</a> <a href="https://ecom-bookworm.herokuapp.com/" target="_blank">Alternate Link</a></li>
+        <li><strong>LazyPaste:</strong> Real time code sharing site.<strong>Technology Stack</strong> Django, Django-Channels, Redis <strong>Demo:</strong> <a href="https://screenit0.herokuapp.com/wspaste/" target="_blank">LazyPaste</a></li>
+        <li><strong>LazyMailz:</strong> Email Solutions Spam-Ham classifier,Machine learning integration with Web Development,Email Verification etc.<strong>Technology Stack</strong> Django, Scikit-Learn, API <strong>Demo:</strong> <a href="http://www.lazymailz.com/" target="_blank">LazyMailz</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col">
+      <h3>Accomplishments</h3>
+      <ul>
+        <li>Provided a workshop to Juniors for getting started with Web Development.</li>
+        <li>Presented a research paper in 3rd International Conference on Advances in Computing and Data Science in ICACDS 2019 Springer. Title- Hand Gesture recognition using Convolutional Neural Network.<a href="https://link.springer.com/chapter/10.1007/978-981-13-9942-8_5" target="_blank">Link</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
+{% endblock %}

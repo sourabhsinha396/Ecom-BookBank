@@ -1,0 +1,36 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">S.Number</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for product in cart.products.all %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td><a href="{{product.get_absolute_url}}">{{product.title}}</a>
+          {% include 'products/snippets/update_cart.html' with object=product cart=cart %}
+        </td>
+        <td>{{product.price}}</td>
+      </tr>
+    {% endfor %}
+
+    <tr>
+      <th colspan="2"></th>
+      <td><b>Subtotal</b> {{cart.subtotal}}</td>
+    </tr>
+
+    <tr>
+      <th colspan="2"></th>
+      <td><b>Total</b> {{cart.total}}</td>
+    </tr>
+
+    <tr>
+      <th colspan="2"></th>
+      <td><a href='{% url "cart:checkout" %}' class="btn btn-lg btn-info">Checkout</a></td>
+    </tr>
+  </tbody>
+</table>

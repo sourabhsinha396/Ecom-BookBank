@@ -1,0 +1,38 @@
+[
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "title": "Million Questions",
+        "slug": "million-questions",
+        "description": "A journey to the endless world of questions",
+        "price": "239.00",
+        "image": "book_images/93678576.jpg",
+        "is_active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "title": "Alive",
+        "slug": "alive",
+        "description": "some text, A fairly short one",
+        "price": "330.00",
+        "image": "book_images/112732888.jpg",
+        "is_active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "title": "Third Book",
+        "slug": "third-book",
+        "description": "This a a demo book",
+        "price": "873.00",
+        "image": "book_images/209215115.jpg",
+        "is_active": true
+    }
+}
+]
